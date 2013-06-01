@@ -1,0 +1,14 @@
+{
+  "name": "videojs-playlists",
+  "description": "Playlists done right for Videojs",
+  "version": "0.1.0",
+  "homepage": "",
+  "license": "MIT",
+  "copyright": "Antonio Laguna",
+  "main": "dist/videojs-playlists.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "assert": "*"
+  }
+}

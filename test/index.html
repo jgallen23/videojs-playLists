@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>videojs-playlists Tests</title>
+  <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+  <script src="../components/assert/assert.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <!--<script src="../components/blanket/dist/qunit/blanket.min.js" data-cover-adapter="../components/blanket/src/adapters/mocha-blanket.js"></script>-->
+  <script>mocha.setup('tdd')</script>
+  <link href="http://vjs.zencdn.net/4.0/video-js.css" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/4.0/video.js"></script>
+    <style>
+        #example_video_1 { display: none; }
+    </style>
+</head>
+<body>
+  <div id="mocha"></div>
+  <div id="fixture" style="display: none">
+
+  </div>
+  <video id="example_video_1" class="video-js vjs-default-skin"
+         controls preload="auto" width="640" height="264"
+         data-setup=''
+         poster="">
+  </video>
+  <script src="../dist/videojs-playlists.js" data-cover></script>
+  <script src="videojs-playlists.test.js"></script>
+  <script>
+
+  </script>
+  <script>
+      if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+          mocha.run();
+      }
+  </script>
+</body>
+</html>
