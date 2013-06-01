@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>videojs-playlists demo</title>
+    <link href="http://vjs.zencdn.net/4.0/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/4.0/video.js"></script>
+    <style>
+        #video {
+            width : 640px;
+            height: 264px;
+            margin: 0 auto;
+        }
+        div.button-holder {
+            width : 640px;
+            margin: 0 auto;
+        }
+        #next {
+            float: right;
+        }
+        #prev {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<video id="video" class="video-js vjs-default-skin"
+       controls preload="auto" width="640" height="264"
+       data-setup=''
+       poster="">
+</video>
+<div class="button-holder">
+    <button id="prev"><< Prev</button>
+    <button id="next">Next >></button>
+</div>
+<script src="../dist/videojs-playlists.js" data-cover></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    var videos = [
+        {
+            src : [
+                'http://stream.flowplayer.org/bauhaus/624x260.webm',
+                'http://stream.flowplayer.org/bauhaus/624x260.mp4',
+                'http://stream.flowplayer.org/bauhaus/624x260.ogv'
+            ],
+            poster : 'http://flowplayer.org/media/img/demos/minimalist.jpg',
+            title : 'Minimalist'
+        },
+        {
+            src : [
+               'http://stream.flowplayer.org/night3/640x360.webm',
+               'http://stream.flowplayer.org/night3/640x360.mp4',
+               'http://stream.flowplayer.org/night3/640x360.ogv'
+            ],
+            poster : 'http://flowplayer.org/media/img/demos/playlist/railway_station.jpg',
+            title : 'Whales'
+        },
+        {
+            src : [
+                'http://stream.flowplayer.org/functional/624x260.webm',
+                'http://stream.flowplayer.org/functional/624x260.mp4',
+                'http://stream.flowplayer.org/functional/624x260.ogv'
+            ],
+            poster : 'http://flowplayer.org/media/img/demos/functional.jpg',
+            title : 'Whales'
+        }
+    ];
+    var player = videojs("video");
+    player.playList(videos);
+
+    $('#next').on('click',function(){
+       player.next();
+    });
+    $('#prev').on('click',function(){
+       player.prev();
+    });
+
+
+    player.on('next',function(){
+       alert('Next event fired');
+    });
+    player.on('prev',function(){
+        alert('Prev event fired');
+    });
+    player.on('lastVideoEnded',function(){
+        alert('lastVideoEnded event fired');
+    });
+</script>
+</body>
+</html>
