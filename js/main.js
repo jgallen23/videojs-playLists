@@ -97,10 +97,10 @@
       this.player[clicked.attr('id')]();
     },
     selectVideo : function(e){
-      var clicked = $(e.toElement);
-      console.log('Selecting video');
+      var clicked = e.target.nodeName === 'LI' ? $(e.target) : $(e.target).closest('li');
 
       if (!clicked.hasClass('active')){
+        console.log('Selecting video');
         var videoIndex = clicked.data('videoplaylist');
         this.player.playList(videoIndex);
         this.updateActiveVideo();
