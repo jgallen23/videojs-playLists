@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>videojs-playlists demo</title>
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+    <link href="http://vjs.zencdn.net/4.0/video-js.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/4.0/video.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <a href="https://github.com/Belelros/videojs-playLists"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <header>
+        <h1>VideoJS Playlists Demo</h1>
+    </header>
+    <div class="video-holder centered">
+        <video id="video" class="video-js vjs-default-skin"
+               controls preload="auto" width="640" height="264"
+               data-setup=''
+               poster="">
+        </video>
+        <div class="playlist-components">
+            <div class="playlist">
+                <ul></ul>
+            </div>
+            <div class="button-holder">
+                <img id="prev" alt="Previous video" src="img/Previous.png">
+                <img id="next" alt="Next video" src="img/Next.png">
+            </div>
+        </div>
+    </div>
+    <div class="panels centered">
+        <pre></pre>
+    </div>
+    <div class="instructions centered">
+        <h2>Usage</h2>
+        <h3>Initialize playList</h3>
+        <p>In order to initialize <code>playList</code> you need to pass an array of videos with this structure:</p>
+        <pre>videos = [
+  {
+    src : [
+      'http://stream.flowplayer.org/bauhaus/624x260.webm',
+      'http://stream.flowplayer.org/bauhaus/624x260.mp4',
+      'http://stream.flowplayer.org/bauhaus/624x260.ogv'
+    ],
+    poster : '',
+    title : 'Whales'
+  },
+  {
+    src : [
+      'http://vjs.zencdn.net/v/oceans.mp4',
+      'http://vjs.zencdn.net/v/oceans.webm'
+    ],
+    poster : 'http://www.videojs.com/img/poster.jpg',
+    title : 'Ocean'
+  }
+];</pre>
+        <p>Now, when videos plays they automatically jump to the next one. You also gain a couple of methods:</p>
+        <h3>Jump to video</h3>
+        <p>Use <code>player.playList(index)</code> to jump to a video into the playlist.</p>
+        <h3>next()</h3>
+        <p>VideoJS receives a <code>next()</code> function which put in place the next video.</p>
+        <h3>prev()</h3>
+        <p>VideoJS receives a <code>prev()</code> function which put in place the previous video.</p>
+        <h3>Events</h3>
+        <table border="0" cellspacing="5" cellpadding="5">
+            <tbody><tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>next</code></td>
+                <td>Fired when you use the `next()` function or when one video finish and the next starts.</td>
+            </tr>
+            <tr>
+                <td><code>prev</code></td>
+                <td>Fired when you use the `prev()` function.</td>
+            </tr>
+            <tr>
+                <td><code>lastVideoEnded</code></td>
+                <td>Fired when the playlist has finished.</td>
+            </tr>
+            </tbody></table>
+    </div>
+</div>
+
+<script src="https://rawgithub.com/Belelros/videojs-playLists/master/lib/videojs-playlists.js" data-cover></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

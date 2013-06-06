@@ -1,0 +1,181 @@
+html, body {
+    height: 100%;
+}
+
+#wrapper {
+    min-height: 100%;
+    height: auto;
+}
+
+header {
+    height: 75px;
+    background: rgba(0,0,0,0.7);
+    font-family: 'Rokkitt', serif;
+    color: #FFF;
+    padding-top: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+header h1 {
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-transform: uppercase;
+    font-size: 3em;
+    text-shadow: 0 4px 3px rgba(0,0,0,0.4),
+    0 8px 13px rgba(0,0,0,0.1),
+    0 18px 23px rgba(0,0,0,0.1);
+}
+code {
+    margin: 0 2px;
+    padding: 0 5px;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+}
+
+code, pre {
+    font: 13px/22px 'Courier New', Courier, Monaco, monospace;
+}
+
+pre {
+    background: #efefef;
+    border: 1px solid #e0e0e0;
+    color: #303030;
+    padding: 20px;
+    margin: 20px 0;
+    overflow: auto;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.video-holder {
+    background: #1b1b1b;
+    padding: 10px;
+}
+.centered {
+    width: 1024px;
+    margin: 30px auto 0;
+}
+
+.playlist-components {
+    height: 264px;
+}
+.video-js, .playlist-components {
+    display: inline-block;
+    vertical-align: top;
+}
+.button-holder {
+    padding: 10px;
+    height: 36px;
+}
+
+.playlist {
+    height: 220px;
+    width: 360px;
+    overflow-y: auto;
+    color: #c0c0c0;
+    border-radius: 8px;
+    display: block;
+    margin: 5px 0;
+    padding: 1px 0 0 0;
+    position: relative;
+    background: -moz-linear-gradient(top,#000 0,#212121 19%,#212121 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#000),color-stop(19%,#212121),color-stop(100%,#212121));
+    background: -o-linear-gradient(top,#000 0,#212121 19%,#212121 100%);
+    background: -ms-linear-gradient(top,#000 0,#212121 19%,#212121 100%);
+    background: linear-gradient(to bottom,#000 0,#212121 19%,#212121 100%);
+    box-shadow: 0 1px 1px #1a1a1a inset,0px 1px 1px #454545;
+    border: 1px solid #1a1a18;
+}
+#next {
+    float: right;
+}
+#prev {
+    float: left;
+}
+
+#prev, #next {
+    cursor: pointer;
+}
+
+.playlist ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.playlist ul li {
+    padding: 10px;
+    border-bottom: 1px solid #000;
+    cursor: pointer;
+}
+.playlist ul li.active {
+    background-color: #4f4f4f;
+    border-color: #4f4f4f;
+    color: #FFF;
+}
+.playlist ul li:hover {
+    border-color: #353535;
+    background: #353535;
+}
+
+
+.playlist .poster, .playlist .title  {
+    display: inline-block;
+    vertical-align: middle;
+}
+ .playlist .number{
+    padding-right: 10px;
+}
+.playlist .poster img {
+    width: 64px;
+}
+.playlist .title {
+    padding-left: 10px;
+}
+
+table {
+    margin: 0 0 20px 0;
+    width: 100%;
+    border-left: 1px solid #e0e0e0;
+}
+table tr {
+
+}
+table tr th, table tr td {
+    padding: 10px 14px;
+    text-align: left;
+}
+table tr th {
+    background-color: #303030;
+    color: #fff;
+    border-right: 1px solid rgba(255,255,255, 0.15);
+    /* Text Shadow */
+    text-shadow: 0 -1px 1px rgba(0,0,0, 0.25);
+    /* Gradient */
+    background-image: linear-gradient(bottom, rgb(48,48,48) 0%, rgb(95,95,95) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(48,48,48) 0%, rgb(95,95,95) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(48,48,48) 0%, rgb(95,95,95) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(48,48,48) 0%, rgb(95,95,95) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(48,48,48) 0%, rgb(95,95,95) 100%);
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(48,48,48)),
+        color-stop(1, rgb(95,95,95))
+    );
+}
+table tr td {
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Odds Events */
+table tr:nth-child(even) td {
+    background: #f6f6f6;
+}
