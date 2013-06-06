@@ -34,10 +34,10 @@
     init : function(){
       this.els = {};
       this.cacheElements();
-      this.overwriteConsole();
       this.initVideo();
       this.createListOfVideos();
       this.bindEvents();
+      this.overwriteConsole();
     },
     overwriteConsole : function(){
       console._log = console.log;
@@ -93,7 +93,7 @@
       });
     },
     nextOrPrev : function(e){
-      var clicked = $(e.toElement);
+      var clicked = $(e.target);
       this.player[clicked.attr('id')]();
     },
     selectVideo : function(e){
