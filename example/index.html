@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>videojs-playlists demo</title>
+    <link href="http://vjs.zencdn.net/4.0/video-js.css" rel="stylesheet">
+  </head>
+  <body>
+    <video id="video" class="video-js vjs-default-skin" controls data-setup="" width="640" height="264"></video>
+    <h1></h1>
+    <button type="button" data-action="prev">Previous</button>
+    <button type="button" data-action="next">Next</button>
+
+    <script src="http://vjs.zencdn.net/4.0/video.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../dist/videojs-playlists.js"></script>
+    <script>
+      var videos = [
+        {
+          src : [
+            'http://stream.flowplayer.org/bauhaus/624x260.webm',
+            'http://stream.flowplayer.org/bauhaus/624x260.mp4',
+            'http://stream.flowplayer.org/bauhaus/624x260.ogv'
+          ],
+          poster : 'http://flowplayer.org/media/img/demos/minimalist.jpg',
+          title : 'Video 1'
+        },
+        {
+          src : [
+            'http://stream.flowplayer.org/night3/640x360.webm',
+            'http://stream.flowplayer.org/night3/640x360.mp4',
+            'http://stream.flowplayer.org/night3/640x360.ogv'
+          ],
+          poster : 'http://flowplayer.org/media/img/demos/playlist/railway_station.jpg',
+          title : 'Video 2'
+        },
+        {
+          src : [
+            'http://stream.flowplayer.org/functional/624x260.webm',
+            'http://stream.flowplayer.org/functional/624x260.mp4',
+            'http://stream.flowplayer.org/functional/624x260.ogv'
+          ],
+          poster : 'http://flowplayer.org/media/img/demos/functional.jpg',
+          title : 'Video 3'
+        }
+      ];
+      var player = videojs('video');
+      player.playList(videos, {
+        getVideoSource: function(vid, cb) {
+          cb(vid.src, vid.poster);
+        }
+      });
+      $('[data-action=prev]').on('click', function(e) {
+        player.prev();
+      });
+      $('[data-action=next]').on('click', function(e) {
+        player.next();
+      });
+    </script>
+  </body>
+</html>

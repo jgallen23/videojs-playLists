@@ -39,14 +39,24 @@ module.exports = function(grunt) {
     watch: {
       main: {
         files: '<%= jshint.main %>',
-        tasks: 'default' 
+        tasks: 'default',
+        options: {
+          livereload: true
+        }
+      },
+      examples: {
+        files: [
+          'example/*'
+        ],
+        options: {
+          livereload: true
+        }
       },
       ci: {
         files: [
-          '<%= jshint.main %>',
           'test/index.html'
         ],
-        tasks: ['default', 'mocha']
+        tasks: 'default'
       }
     },
     mocha: {
@@ -63,13 +73,6 @@ module.exports = function(grunt) {
           'reports': ['lib/*.js']
         }
       }
-    },
-    reloadr: {
-      main: [
-        'example/*',
-        'test/*',
-        'dist/*'
-      ]
     },
     connect: {
       server:{
@@ -91,10 +94,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-mocha');
-  grunt.loadNpmTasks('grunt-reloadr');
   grunt.loadNpmTasks('grunt-plato');
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'mocha']);
-  grunt.registerTask('dev', ['connect:server', 'reloadr', 'watch:main']);
+  grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('dev', ['connect:server', 'watch']);
   grunt.registerTask('ci', ['connect:server', 'watch:ci']);
   grunt.registerTask('reports', ['plato', 'connect:plato']);
 };
