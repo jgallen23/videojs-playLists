@@ -22,14 +22,19 @@ function playList(options,arg){
     return videoTypes[extension] || '';
   };
 
-  player.pl.init = function(options) {
+  player.pl.init = function(videos, options) {
+    options = options || {};
     player.pl.videos = [];
     player.pl.current = 0;
     player.pl.el = player.N;
     player.pl.poster = player.pl._getPosterElement();
     player.on('ended', player.pl._videoEnd);
 
-    player.pl._addVideos(options);
+    if (options.getVideoSource) {
+      player.pl.getVideoSource = options.getVideoSource;
+    }
+
+    player.pl._addVideos(videos);
   };
 
   player.pl._getPosterElement = function(){
@@ -95,9 +100,19 @@ function playList(options,arg){
         player.pl._resumeVideo();
       }
 
-      player.src(player.pl.videos[index].src);
-      player.pl._updatePoster(player.pl.videos[index].poster);
+      if (player.pl.getVideoSource) {
+        player.pl.getVideoSource(player.pl.videos[index], function(src, poster) {
+          player.pl._setVideoSource(src, poster);
+        });
+      } else {
+        player.pl._setVideoSource(player.pl.videos[index].src, player.pl.videos[index].poster);
+      }
     }
+  };
+
+  player.pl._setVideoSource = function(src, poster) {
+    player.src(src);
+    player.pl._updatePoster(poster);
   };
 
   player.pl._resumeVideo = function(){
@@ -117,7 +132,7 @@ function playList(options,arg){
   };
 
   if (options instanceof Array){
-    player.pl.init(options);
+    player.pl.init(options, arg);
     player.pl._setVideo(0);
     return player;
   }
