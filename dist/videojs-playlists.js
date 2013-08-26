@@ -1,6 +1,6 @@
 /*!
  * videojs-playlists - Playlists done right for Videojs
- * v0.1.0
+ * v0.1.1
  * 
  * copyright Antonio Laguna 2013
  * MIT License
@@ -41,10 +41,15 @@ function playList(options,arg){
     var parent = player.pl.el.parentNode,
         poster;
 
-    for (var i = 0, length = parent.children.length; i < length && !poster;i++){
-      if (parent.children[i].className === 'vjs-poster'){
-        poster = parent.children[i];
+    if (parent){
+      for (var i = 0, length = parent.children.length; i < length && !poster;i++){
+        if (parent.children[i].className === 'vjs-poster'){
+          poster = parent.children[i];
+        }
       }
+    }
+    else {
+      poster = document.getElementsByClassName('vjs-poster');
     }
 
     return poster;
@@ -54,7 +59,12 @@ function playList(options,arg){
     player.pl.el.poster = posterURL;
 
     if (player.pl.poster){
-      player.pl.poster.style.backgroundImage = posterURL;
+      if (typeof player.pl.poster.style !== 'undefined'){
+        player.pl.poster.style.backgroundImage = posterURL;
+      }
+      else {
+        player.pl.poster[0].style.backgroundImage = posterURL;
+      }
     }
   };
 

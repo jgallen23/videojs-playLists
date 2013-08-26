@@ -1,5 +1,10 @@
 
-0.1.0 / 2013-07-08 
+0.1.1 / 2013-08-26
+==================
+
+  * Fixed issue with iOS devices in which the plugin won't work
+
+0.1.0 / 2013-07-08
 ==================
 
   * added example, updated gruntfile

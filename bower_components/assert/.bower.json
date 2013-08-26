@@ -1,0 +1,15 @@
+{
+  "name": "assert",
+  "version": "0.0.1",
+  "main": "./assert.js",
+  "homepage": "https://github.com/jgallen23/assert",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "d713c8c0d007c22985f92bf4c0aa1ab5688ce187"
+  },
+  "_source": "git://github.com/jgallen23/assert.git",
+  "_target": "*",
+  "_originalSource": "assert"
+}
