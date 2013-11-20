@@ -13,11 +13,11 @@ function playList(options,arg){
 
   player.pl._guessVideoType = function(video){
     var videoTypes = {
-      'webm' : 'video/webm',
-      'mp4' : 'video/mp4',
-      'ogv' : 'video/ogg'
-    };
-    var extension = video.split('.').pop();
+          'webm' : 'video/webm',
+          'mp4' : 'video/mp4',
+          'ogv' : 'video/ogg'
+        },
+        extension = video.split('.').pop();
 
     return videoTypes[extension] || '';
   };
@@ -26,8 +26,6 @@ function playList(options,arg){
     options = options || {};
     player.pl.videos = [];
     player.pl.current = 0;
-    player.pl.el = player.N;
-    player.pl.poster = player.pl._getPosterElement();
     player.on('ended', player.pl._videoEnd);
 
     if (options.getVideoSource) {
@@ -55,17 +53,10 @@ function playList(options,arg){
     return poster;
   };
 
-  player.pl._updatePoster = function (posterURL) {
-    player.pl.el.poster = posterURL;
-
-    if (player.pl.poster){
-      if (typeof player.pl.poster.style !== 'undefined'){
-        player.pl.poster.style.backgroundImage = posterURL;
-      }
-      else {
-        player.pl.poster[0].style.backgroundImage = posterURL;
-      }
-    }
+  player.pl._updatePoster = function(posterURL) {
+    player.poster(posterURL);
+    player.removeChild(player.posterImage);
+    player.posterImage = player.addChild("posterImage");
   };
 
   player.pl._addVideos = function(videos){
