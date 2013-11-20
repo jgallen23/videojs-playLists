@@ -1,6 +1,6 @@
 #videojs-playlists
 
-Playlists done right for VideoJS
+Sexy Playlists for VideoJS.
 
 ##Installation
 

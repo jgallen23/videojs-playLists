@@ -1,6 +1,6 @@
 {
   "name": "videojs-playlists",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "private": true,
   "devDependencies": {
     "mocha": "1.10.0",

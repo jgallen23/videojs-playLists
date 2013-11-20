@@ -9,7 +9,7 @@ suite('videojs-playlists', function() {
           'http://stream.flowplayer.org/bauhaus/624x260.mp4',
           'http://stream.flowplayer.org/bauhaus/624x260.ogv'
         ],
-        poster : '',
+        poster : 'http://flowplayer.org/media/img/demos/functional.jpg',
         title : 'Whales'
       },
       {
@@ -42,7 +42,8 @@ suite('videojs-playlists', function() {
       assert.equal(player.pl.current,index);
     });
     test('poster should match video poster',function(){
-      assert.equal(player.pl.el.poster,videos[index].poster);
+      var poster = $('.vjs-poster').css('background-image').replace('url(','').replace(')','');
+      assert.equal(poster,videos[index].poster);
     });
   });
   suite('general',function(){

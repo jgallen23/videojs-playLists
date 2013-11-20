@@ -1,3 +1,8 @@
+0.2.0 / 2013-11-20
+==================
+
+  * Fixed issue which avoided the playlist to work with latest versions of videojs
+
 
 0.1.1 / 2013-08-26
 ==================
