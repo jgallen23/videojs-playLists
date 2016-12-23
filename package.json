@@ -3,15 +3,15 @@
   "version": "0.2.0",
   "private": true,
   "devDependencies": {
-    "mocha": "1.10.0",
-    "grunt": "~0.4.1",
+    "mocha": "3.2.0",
+    "grunt": "~1.0.1",
     "grunt-reloadr": "~0.1.2",
-    "grunt-mocha": "~0.3.0",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "~0.2.0",
-    "grunt-contrib-jshint": "~0.5.4",
-    "grunt-contrib-connect": "~0.3.0",
-    "grunt-contrib-watch": "~0.4.3",
-    "grunt-plato": "~0.2.0"
+    "grunt-mocha": "~1.0.2",
+    "grunt-contrib-concat": "~1.0.1",
+    "grunt-contrib-uglify": "~2.0.0",
+    "grunt-contrib-jshint": "~1.1.0",
+    "grunt-contrib-connect": "~1.0.2",
+    "grunt-contrib-watch": "~1.0.0",
+    "grunt-plato": "~1.4.0"
   }
 }
